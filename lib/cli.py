@@ -3,6 +3,7 @@
 from helpers import (
     exit_program,
     helper_1
+    # all other methods
 )
 
 
@@ -16,6 +17,14 @@ def main():
             helper_1()
         else:
             print("Invalid choice")
+        # (main menu) l to list cities, e to exit
+        # (in city list) id to see restaurants in city, a to add city,
+            # e to exit, b for back
+        # (in restaurant list) id to see restaurant details, a to add
+            # restaurant, d to delete city, n to search for restaurant by name, 
+            # i to search for restaurant by id, to exit, b for back
+        # (in restaurant details) displays name, cuisine, and state
+            # e to exit, b for back
 
 
 def menu():
