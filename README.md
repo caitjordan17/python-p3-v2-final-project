@@ -11,7 +11,7 @@ Restaurant Finder is a python Command Line Interface application that is designe
 From the main menu you can see the cities or exit the application.
 From the city menu you can:
  - see a list of all the cities you saved
- - add a city you visited and loved
+ - add a city you visited and loved 
  - remove a city you don't want to see anymore
  - look at the restaurants in the city
  - go back to the main menu
