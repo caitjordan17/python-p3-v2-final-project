@@ -22,21 +22,11 @@ def list_rest_by_city(city_id):
 
 def list_cities():
     cities = City.get_all()
-    for city in cities:
-        print(f'{city.id}: {city}') 
-        #Let's say the values are a list of dog objects that I got from the backend 
-        # using .get_all().  I iterate with index starting at 1 through the list and 
-        # show the user a nicely numbered list of dogs - they never see the IDs as 
-        # those are not very user friendly.  Now, if the user wants number 3, I know 
-        # the user wants the third one in my list that I got from the backend and I 
-        # can grab it from dogs - but the 3rd dog's index in the list is 2 (because 
-        # lists start at 0).  So if the user says "I pick 3" I show them 
-        # dogs[number_they_picked - 1] and voila!  I have the dog they wanted with all 
-        # its attributes available to me to show them!!  Feel free to ask any 
-        # questions! 
+    for index, city in enumerate(cities, start = 1):
+        print(f'{index}: {city}') 
 
-        #change CLI #s to obj's place & call obj[#] to get id
-        
+        #change CLI #s to index & call index to get id
+
 def find_city_by_name():
     name = input("Enter the city's name: ")
     city = City.find_by_name(name)
