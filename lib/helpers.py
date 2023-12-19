@@ -6,19 +6,29 @@ def exit_program():
     print("Goodbye!")
     exit()
 
-def city_details(city_name):
-    print(City.city_details(name))
-    #print(Restaurant.)
-    #take in city name, search by city name, grab City.city details, 
+def return_state(city_name):
+    state = City.return_state(city_name)
+    print(f'located in {state}')
 
 def restaurants_by_city(city_name):
-    #search by city name, list restaurant where restaurant.city_id = city_name.id
-    pass
+    city = City.find_by_name(city_name)
+    for restaurant in city.restaurants():
+        print(restaurant)
+
+def help_me(city_name):
+    return City.find_by_name(city_name)
+
+def list_rest_by_city(id_):
+    if city := City.find_by_id(id_):
+        for restaurant in city.restaurants():
+            print(restaurant)
+    else:
+        print(f'Department {id} not found')
 
 def list_cities():
     cities = City.get_all()
     for city in cities:
-        print(city) #this returns repr, don't do that, more frontend
+        print(f'{city.id}: {city}') #this returns repr, don't do that, more frontend
 
 def find_city_by_name():
     name = input("Enter the city's name: ")
@@ -26,8 +36,7 @@ def find_city_by_name():
     print(city) if city else print(
         f'{name} not found in city database. Please try another.')
 
-def find_city_by_id():
-    id_ = input("Enter the city's id: ") #take out
+def find_city_by_id(id_):
     city = City.find_by_id(id_)
     print(city) if city else print(f'No cities found with an ID of {id_}')
 

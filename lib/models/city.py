@@ -15,8 +15,8 @@ class City:
     def get_id(self):
         return self.id
     
-    def city_details(self):
-        return f'{self.name}, located in {self.state}'
+    def return_state(self):
+        return f'{self.state}'
     
     @property
     def name(self):
@@ -65,11 +65,11 @@ class City:
         CONN.commit()
 
     def save(self):
-        """ Insert a new row with the name and location values of the current City instance.
+        """ Insert a new row with the name and state values of the current City instance.
         Update object id attribute using the primary key value of new row.
         Save the object in local dictionary using table row's PK as dictionary key"""
         sql = """
-            INSERT INTO cities (name, location)
+            INSERT INTO cities (name, state)
             VALUES (?, ?)
         """
 
