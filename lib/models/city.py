@@ -10,7 +10,13 @@ class City:
         self.state = state
 
     def __repr__(self):
-        return f'<City {self.id}: {self.name}, located in {self.state}>' #need to redo
+        return f'{self.name}' 
+    
+    def get_id(self):
+        return self.id
+    
+    def city_details(self):
+        return f'{self.name}, located in {self.state}'
     
     @property
     def name(self):
