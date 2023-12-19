@@ -12,7 +12,7 @@ class Restaurant:
         self.cuisine = cuisine
 
     def __repr__(self):
-        return f'<City {self.id}: {self.name}, located in {self.city_id}>'
+        return f'{self.name}, Cuisine: {self.cuisine}'
     
     @property
     def name(self):

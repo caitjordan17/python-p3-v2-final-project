@@ -147,14 +147,15 @@ class City:
         row = CURSOR.execute(sql, (name,)).fetchone()
         return cls.instance_from_db(row) if row else None
     
-    def restaurants(self):
+    @classmethod
+    def restaurants(cls, id):
         """Return list of restaurants in current city"""
         from models.restaurant import Restaurant
         sql = """
             SELECT * FROM restaurants
             WHERE city_id = ?
         """
-        CURSOR.execute(sql, (self.id,),)
+        CURSOR.execute(sql, (id,),)
         rows = CURSOR.fetchall()
         return [
             Restaurant.instance_from_db(row) for row in rows
