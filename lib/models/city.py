@@ -10,7 +10,7 @@ class City:
         self.state = state
 
     def __repr__(self):
-        return f'<City {self.id}: {self.name}, located in {self.state}>'
+        return f'<City {self.id}: {self.name}, located in {self.state}>' #need to redo
     
     @property
     def name(self):
@@ -24,7 +24,20 @@ class City:
                 "Name must be a non-empty string"
             )
 
-    # state @property to validate state is a valid state in array
+    @property
+    def state(self):
+        return self._state
+    
+    @state.setter
+    def state(self, state):
+        if isinstance(state, str) and len(state):
+            self._state = state
+        else:
+            raise ValueError(
+                "State must be a non-empty string"
+            )
+    
+    
 
     # @classmethods
     # create_table to persist attributes of City
