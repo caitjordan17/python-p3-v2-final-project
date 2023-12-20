@@ -15,9 +15,12 @@ class City:
     @classmethod
     def get_id(cls, name_value):
         for city in City.all.values():
+            print("in cls, for city in City.all.values():", city)
+            print("in cls, city.name:", city.name)
+            print("in cls, city.id:", city.id)
             if name_value == city.name:
-                print(city.id)
-        print("Invalid city")
+                print("true dat!")
+                return city.id
     
     def return_state(self):
         return f'{self.state}'
