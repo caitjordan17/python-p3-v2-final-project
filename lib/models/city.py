@@ -15,12 +15,16 @@ class City:
     @classmethod
     def get_id(cls, name_value):
         for city in City.all.values():
+            print("in cls, name_value:", name_value)
+            print("truth?", name_value == city.name) # how do i figure out what the difference is between these two??!
             print("in cls, for city in City.all.values():", city)
             print("in cls, city.name:", city.name)
             print("in cls, city.id:", city.id)
             if name_value == city.name:
                 print("true dat!")
                 return city.id
+            else:
+                print("invalid city")
     
     def return_state(self):
         return f'{self.state}'
