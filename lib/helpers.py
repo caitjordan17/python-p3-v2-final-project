@@ -28,9 +28,7 @@ def list_cities():
         #change CLI #s to index & call index to get id
 def city_id_from_index(city_index):
         cities = City.get_all() #[city, city, city]
-        print("in H, City.get_all():", cities)
         city = cities[city_index] #city
-        print("in H, cities[city_index]", city)
         return City.get_id(city)
 
 def find_city_by_name():
