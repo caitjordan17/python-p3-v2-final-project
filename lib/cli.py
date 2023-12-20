@@ -13,6 +13,7 @@ from helpers import (
     delete_city,
     create_restaurant,
     delete_restaurant,
+    city_id_from_index
 )
 
 
@@ -66,15 +67,22 @@ def city_menu():
         delete_city()
         city_menu()
     else:
-        city_id = int(choice)
-        city = City.find_by_id(city_id)
-        if city:
-            print('city:', city)
-            city_detail_menu(city, city_id)
-        else:
-            print("Looks like we don't have that city")
-            print("Try a city from the list")
-            city_menu()
+        city_index = int(choice) - 1 #actual index
+        city_id = city_id_from_index(city_index)
+        print("ci:", city_id)
+        # cities = City.get_all() #[city, city, city]
+        # city = cities[city_index] #city
+        # print("city[city_index]:", city)
+        # city_id = find_city_by_name(city)
+        # print("city id:", city_id)
+
+        # if city:
+        #     print('city:', city)
+        #     city_detail_menu(city, city_id)
+        # else:
+        #     print("Looks like we don't have that city")
+        #     print("Try a city from the list")
+        #     city_menu()
 
 #city details & restaurant menu
 def city_detail_menu(city_name, city_id):

@@ -26,6 +26,11 @@ def list_cities():
         print(f'{index}: {city}') 
 
         #change CLI #s to index & call index to get id
+def city_id_from_index(city_index):
+        cities = City.get_all() #[city, city, city]
+        city = list(cities.values())[city_index] #city
+        city_id = City.get_id(city)
+        print(city_id)
 
 def find_city_by_name():
     name = input("Enter the city's name: ")

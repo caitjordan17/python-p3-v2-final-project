@@ -12,8 +12,12 @@ class City:
     def __repr__(self):
         return f'{self.name}' 
     
-    def get_id(self):
-        return self.id
+    @classmethod
+    def get_id(cls, name_value):
+        for city in City.all.values():
+            if name_value == city.name:
+                print(city.id)
+        print("Invalid city")
     
     def return_state(self):
         return f'{self.state}'
