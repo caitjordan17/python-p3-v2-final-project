@@ -2,44 +2,40 @@
 from models.city import City
 from models.restaurant import Restaurant
 
-def exit_program():
+def exit_program(): 
     print("Goodbye!")
     exit()
 
 def return_state(city_name):
-    state = City.return_state(city_name)
-    print(f'located in {state}')
-
-def restaurants_by_city(city_name):
     city = City.find_by_name(city_name)
-    for restaurant in city.restaurants():
-        print(restaurant)
+    print(f'located in {city.state}')
 
 def list_rest_by_city(city_id):
     restaurants = City.restaurants(city_id)
     for restaurant in restaurants:
-        print(f' - {restaurant}')
+        print(f' - {restaurant.name}, {restaurant.cuisine} cuisine')
 
 def list_cities():
     cities = City.get_all()
     for index, city in enumerate(cities, start = 1):
-        print(f'{index}: {city}') 
+        print(f'{index}: {city.name}') 
 
-        #change CLI #s to index & call index to get id
-def city_id_from_index(city_index):
-        cities = City.get_all() #[city, city, city]
-        city = cities[city_index] #city
-        return City.get_id(city)
+def city_name_from_index(index):
+    cities = City.get_all()
+    return cities[int(index)].name
 
-def find_city_by_name():
-    name = input("Enter the city's name: ")
-    city = City.find_by_name(name)
-    print(city) if city else print(
-        f'{name} not found in city database. Please try another.')
+def city_id_from_name(city_name):
+    return City.get_id(city_name)
 
-def find_city_by_id(id_):
-    city = City.find_by_id(id_)
-    print(city) if city else print(f'No cities found with an ID of {id_}')
+# def find_city_by_name():
+#     name = input("Enter the city's name: ")
+#     city = City.find_by_name(name)
+#     print(city) if city else print(
+#         f'{name} not found in city database. Please try another.')
+
+# def find_city_by_id(id_):
+#     city = City.find_by_id(id_)
+#     print(city) if city else print(f'No cities found with an ID of {id_}')
 
 def create_city():
     name = input("Enter the city's name: ")
@@ -57,20 +53,20 @@ def delete_city():
         print(f'{city} has been deleted')
         print("id:", id_)
     else:
-        print(f'{city} was not found')
+        print(f'City number was not found, please try again')
         print('---Nothing was deleted---')
 
-def list_restaurants(): 
-    restaurants = Restaurant.get_all()
-    for restaurant in restaurants:
-        print(restaurant)
+# def list_restaurants(): 
+#     restaurants = Restaurant.get_all()
+#     for restaurant in restaurants:
+#         print(restaurant.name)
 
-def find_restaurant_by_name():
-    name = input("Enter restaurant's name: ")
-    restaurant = Restaurant.find_by_name(name)
-    print(restaurant) if restaurant else print(
-        f'{name} was not found. Please try another.'
-    )
+# def find_restaurant_by_name():
+#     name = input("Enter restaurant's name: ")
+#     restaurant = Restaurant.find_by_name(name)
+#     print(restaurant.name) if restaurant else print(
+#         f'{name} was not found. Please try another.'
+#     )
 
 def create_restaurant(city_id):
     name = input("Enter restaurant's name: ")
@@ -87,4 +83,5 @@ def delete_restaurant():
         restaurant.delete()
         print(f'Success! {name_} deleted.')
     else:
-        print(f'{name_} was not found')
+        print(f'Restaurant name was not found, please try again')
+        print('---Nothing was deleted---')
