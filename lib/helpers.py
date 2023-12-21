@@ -52,7 +52,7 @@ def create_restaurant(city_id):
     cuisine = input("Enter restaurant's cuisine: ")
     try:
         restaurant = Restaurant.create(name, cuisine, city_id)
-        print(f'Success! {restaurant} was created!') 
+        print(f'Success! {restaurant.name} was created!') 
     except Exception as exc:
         print('Error creating restaurant: ', exc)
 
