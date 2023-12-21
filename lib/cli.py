@@ -64,7 +64,7 @@ def city_menu():
         print("")
         print("")
         print("Welcome back to...")
-        menu()
+        main()
     elif choice == "a":
         create_city()
         city_menu()
