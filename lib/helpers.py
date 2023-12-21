@@ -15,6 +15,7 @@ def list_rest_by_city(city_id):
     for restaurant in restaurants:
         print(f' - {restaurant.name}, {restaurant.cuisine} cuisine')
 
+
 def list_cities():
     cities = City.get_all()
     for index, city in enumerate(cities, start = 1):
@@ -40,7 +41,7 @@ def delete_city():
     id_ = input("Enter the city's number: ")
     if city := City.find_by_id(id_):
         city.delete()
-        print(f'{city} has been deleted')
+        print(f'{city.name} has been deleted')
         print("id:", id_)
     else:
         print(f'City number was not found, please try again')
